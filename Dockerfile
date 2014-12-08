@@ -8,4 +8,10 @@ RUN tar -zxvf zabbix-2.4.2.tar.gz && \
   apt-get update && \
   apt-get install -y php5-mysql php5-fpm php5-gd
 
-CMD ["echo", "TODO: cmd"]
+# php-fpm port
+EXPOSE 9000
+
+# location of our frontend php files
+VOLUME ["/srv/zabbix"]
+
+CMD ["/usr/sbin/php5-fpm", "--nodaemonize", "--fpm-config /etc/php5/fpm/php-fpm.conf"]
