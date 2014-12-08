@@ -4,6 +4,8 @@ FROM dockerfile/ubuntu
 RUN wget -O zabbix-2.4.2.tar.gz http://sourceforge.net/projects/zabbix/files/ZABBIX%20Latest%20Stable/2.4.2/zabbix-2.4.2.tar.gz/download
 RUN tar -zxvf zabbix-2.4.2.tar.gz && \
   mv zabbix-2.4.2/frontends/php /srv/zabbix && \
-  ls -la /srv/zabbix
+  # ls -la /srv/zabbix && \
+  apt-get update && \
+  apt-get install -y php5-mysql php5-fpm php5-gd
 
 CMD ["echo", "TODO: cmd"]
